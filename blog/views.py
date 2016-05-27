@@ -98,11 +98,17 @@ def article(request, arti_id):
     res_dict = {}
     res_dict.update(theme_base_dict)
 
+    # in case user request the unavailable page
+    if article_id > res_dict['article_amount']:
+        article_id = res_dict['article_amount']
+
     blog = Article.objects.get(id=article_id)
     res_dict['blog'] = blog
     res_dict['current_id'] = article_id
-    res_dict['next_id'] = article_id + 1
-    res_dict['next_caption'] = Article.objects.get(id=res_dict['next_id'])
+
+    if res_dict['current_id'] < res_dict['article_amount']:
+        res_dict['next_id'] = article_id + 1
+        res_dict['next_caption'] = Article.objects.get(id=res_dict['next_id'])
 
     if article_id > 1:
         res_dict['pre_id'] = article_id - 1

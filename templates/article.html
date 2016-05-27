@@ -27,6 +27,12 @@
     {% else %}
         上一篇：<a href={% url "article" pre_id  %}>{{ pre_caption.caption }}</a><br>
     {% endif %}
+
+    {% if current_id == article_amount %}
+        没有了<br>
+    {% else %}
         下一篇：<a href={% url "article" next_id %}>{{ next_caption.caption }}</a><br>
+    {% endif %}
+
 </div>
 {% endblock %}

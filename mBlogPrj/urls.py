@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from blog import views as blog_views
+import DjangoUeditor
 
 admin.autodiscover()
 
@@ -25,6 +26,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^ueditor/',include("DjangoUeditor.urls")),
     # url(r'^index/', 'blog.views.index_page'),
     url(r'^index/', blog_views.index_page, name='index_page'),
     url(r'^list/(?P<page_num>\d{1,3})/', blog_views.article_list, name='article_list'),
