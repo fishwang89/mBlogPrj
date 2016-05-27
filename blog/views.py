@@ -12,7 +12,6 @@ def theme_base(temp_amount=0):
     if temp_amount == 0:
         article_amount = Article.objects.all().count()
     else:
-        print "yesyesyes"
         article_amount = temp_amount
 
     page_amount = article_amount/10 + 1
@@ -59,7 +58,6 @@ def article_list(request, page_num):
     res_dict['blogs'] = blogs
     res_dict['current_page'] = page     # user page not page_num they are different type
     res_dict['url_type'] = "article_list"
-
 
     return render(request, 'article_list.html', res_dict)
 
