@@ -1,8 +1,17 @@
 from django.db import models
 
 # Create your models here.
-class Blog(models.Model):
-    title = models.CharField(max_length=150)
-    body = models.TextField()
-    timestamp = models.DateTimeField
-    category = models.CharField(max_length=60)
+class Classification(models.Model):
+    name = models.CharField(max_length=20)
+
+    def __unicode__(self):
+        return self.name
+
+class Article(models.Model):
+    caption = models.CharField(max_length=150)
+    publish_time = models.DateTimeField(auto_now_add=True)
+    update_time = models.DateTimeField(auto_now_add=True)
+    classification = models.ForeignKey(Classification)
+    content = models.TextField()
+
+admin.site.register(Article)
