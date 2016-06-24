@@ -10,4 +10,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^index/', 'blog.views.blog_list'),
+    url(r'^bootstrap_test/', 'blog.views.bootstrap_test'),
 )
