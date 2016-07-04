@@ -1,0 +1,87 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}欢迎来访11BlogSite{% endblock %}</title>
+    <meta name="description" content="{% block meta_desc %}Danny的个人网站，采用的Python Django框架开发而成，从兴趣到实践，意在学习、分享与记录。技术专注于Python与前端开发，包括Python、Django、HTML、CSS、JavaScript、Redis、Linux等。{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}编程,Python,Django,HTML,CSS,JavaScript,Redis,Linux,PHP,个人网站{% endblock %}">
+    {% block extra_metas %}
+    {% endblock %}
+    <link href="{% static 'bootstrap-3.3.5-dist/css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    
+    {% block extra_link %}{% endblock %}
+    {% block extra_js %}  {% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+
+                <!-- Collapsed Hamburger -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <!-- Branding Image -->
+                <a class="navbar-brand" href="https://botlist.co/">
+                    <img src="./Botlist • An App Store For Bots;_files/botlist-logo.svg">
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <!-- Left Side Of Navbar -->
+                <ul class="nav navbar-nav">
+                    <!-- li><a href="https://botlist.co/news">News</a></li -->
+                    <li><a target="_blank" href="https://medium.com/chat-bots">Articles</a></li>
+                    <li><a target="_blank" href="http://botgig.com/">Create a Bot</a></li>
+                    <li><a href="https://botlist.typeform.com/to/JXvvip" target="_blank">Submit a Bot</a></li>
+                </ul>
+
+                <!-- Right Side Of Navbar -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="search" role="search" method="GET" action="https://botlist.co/search">
+                            <div class="form-group inner-addon left-addon">
+                                <input name="query" type="text" class="form-control" placeholder="Search">
+                                <i class="glyphicon glyphicon-search form-control-feedback"></i>
+                            </div>
+                        </form>
+                    </li>
+                    <li><a href="https://botlist.co/bots/filter">Browse</a></li>
+                                        <!-- Authentication Links -->
+                                            <li><a href="https://botlist.co/login">Login</a></li>
+                        <li><a href="https://botlist.co/register">Register</a></li>
+                                    </ul>
+
+
+            </div>
+        </div>
+    </nav>
+    
+    <div id="hero">
+        <div class="container">
+            <div class="row">
+                <h2>An App Store For Bots</h2>
+                <img src="./Botlist • An App Store For Bots;_files/platform-list.svg" class="platform-list" alt="platform logos">
+                
+                <form class="col-md-6 col-md-offset-3" role="search" method="GET" action="https://botlist.co/search">
+                    <div class="form-group">
+                        <input name="query" type="text" class="form-control col-xs-8" placeholder="These aren&#39;t the droids we&#39;re looking for.">
+                        <button type="submit" class="btn btn-custom col-lg-3 col-xs-3">Search</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

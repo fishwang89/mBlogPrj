@@ -20,3 +20,8 @@ def bootstrap_test(request):
     blogs = Article.objects.all().order_by('-publish_time')
     f = Testform()
     return render(request, 'bootstrap_test.html', {'blogs': blogs, 'form': f})
+
+
+def static_test(request):
+    home = 'abc'
+    return render(request, 'static_test.html', {"home":home})
