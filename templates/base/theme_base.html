@@ -17,11 +17,10 @@
     {% block extra_js %}  {% endblock %}
 </head>
 
-<body>
+<body id="home">
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-
                 <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
@@ -29,10 +28,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
+            
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="https://botlist.co/">
-                    <img src="./Botlist • An App Store For Bots;_files/botlist-logo.svg">
+                <a class="navbar-brand" href="http://192.168.0.100:8008/admin">
+                    <img src="{% static 'image/logo.png' %}">
                 </a>
             </div>
 
@@ -42,7 +41,7 @@
                     <!-- li><a href="https://botlist.co/news">News</a></li -->
                     <li><a target="_blank" href="https://medium.com/chat-bots">Articles</a></li>
                     <li><a target="_blank" href="http://botgig.com/">Create a Bot</a></li>
-                    <li><a href="https://botlist.typeform.com/to/JXvvip" target="_blank">Submit a Bot</a></li>
+                    <li><a href="https://botlist.typeform.com/to/JXvvip" target="_blank">About</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -55,33 +54,148 @@
                             </div>
                         </form>
                     </li>
-                    <li><a href="https://botlist.co/bots/filter">Browse</a></li>
-                                        <!-- Authentication Links -->
-                                            <li><a href="https://botlist.co/login">Login</a></li>
-                        <li><a href="https://botlist.co/register">Register</a></li>
-                                    </ul>
-
-
+                </ul>
             </div>
         </div>
     </nav>
     
     <div id="hero">
-        <div class="container">
-            <div class="row">
-                <h2>An App Store For Bots</h2>
-                <img src="./Botlist • An App Store For Bots;_files/platform-list.svg" class="platform-list" alt="platform logos">
-                
-                <form class="col-md-6 col-md-offset-3" role="search" method="GET" action="https://botlist.co/search">
-                    <div class="form-group">
-                        <input name="query" type="text" class="form-control col-xs-8" placeholder="These aren&#39;t the droids we&#39;re looking for.">
-                        <button type="submit" class="btn btn-custom col-lg-3 col-xs-3">Search</button>
-                    </div>
+	<div class="container">
+		<div class="row">
+			<h2>background image here</h2>
+			<!--img src="{% static 'image/background.jpg' %}" class="platform-list" alt="platform logos"-->
+		</div>
+	</div>
+    </div>
+    
 
-                </form>
+    <div class="container">
+        <div class="row">    
+            <div id="sidebar" class="col-xs-2 hidden-xs">
+                <div class="block">
+                    <h2>Platforms</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="https://botlist.co/bots/filter?platform=7">Android</a></li>
+                        <li><a href="https://botlist.co/bots/filter?platform=4">Email</a></li>
+                        <li><a href="https://botlist.co/bots/filter?platform=13">Facebook Messenger</a></li>
+                        <li><a href="https://botlist.co/bots/filter?platform=8">iPhone</a></li>
+                        <li><a href="https://botlist.co/bots/filter?platform=10">Kik</a></li>
+                        <li><a href="https://botlist.co/bots/filter?platform=5">Slack</a></li>
+                        <li><a href="https://botlist.co/bots/filter?platform=2">SMS</a></li>
+                        <li><a href="https://botlist.co/bots/filter?platform=6">Telegram</a></li>
+                        <li><a href="https://botlist.co/bots/filter?platform=9">Web</a></li>
+                        <li><a href="https://botlist.co/bots/filter?platform=14">Skype</a></li>
+                    </ul>
+                </div>
+                
+                <div class="block">
+                    <h2>Categories</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=11">Analytics</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=2">Communication</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=12">Customer Support</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=6">Design</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=7">Developer Tools</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=27">Entertainment</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=13">File Management</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=28">Food</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=14">Health</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=9">HR</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=15">Marketing</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=24">News</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=16">Office Management</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=18">Payments</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=1">Personal</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=3">Productivity</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=20">Security</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=5">Social &amp; Fun</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=26">Sports</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=17">Task Management</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=19">Travel</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=25">Utilities</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="main" class="col-lg-10 col-xs-12">
+                <div class="block">
+                    <header>
+                        <h2 class="">article1</h2>
+                    </header>
+
+                    <div class="row bot-list">
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="bot">
+                                <div class="row">
+                                    <p>article1</p>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                
+                <div class="block">
+                    <header>
+                        <h2 class="">article2</h2>
+                    </header>
+
+                    <div class="row bot-list">
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="bot">
+                                <div class="row">
+                                    <p>article2</p>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
             </div>
         </div>
     </div>
+    
+    <footer>
+        <div class="press">
+            <div class="container no-border">
+                <div class="row">
+                    <h3 class="text-center">As Seen On</h3>
+                    <hr>
+                    <div class="col-sm-4 col-xs-12 text-left">
+                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
+                    </div>
+                    <div class="col-sm-4 col-xs-12 text-right">
+                        <img src="./Botlist • An App Store For Bots;_files/digital-trends.svg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    © BotList 2016, A Marketing Stack Ltd Company
+                </div>
+                <div class="col-sm-6 text-right">Built by: <a target="_blank" href="https://twitter.com/bentossell">@bentossell</a>, <a target="_blank" href="https://twitter.com/sethlouey">@sethlouey</a>, <a target="_blank" href="https://twitter.com/mubashariqbal">@mubashariqbal</a></div>
+            </div>
+        </div>
+    </footer>
+    
+    
+    <!-- JavaScripts -->
+    <script src="{% static 'bootstrap-3.3.5-dist/js/bootstrap.js' %}"></script>
 
+    <script src="{% static 'bootstrap-3.3.5-dist/js/bootstrap.min.js' %}"></script>
+
+    
 </body>
 </html>
