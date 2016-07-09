@@ -4,8 +4,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{% block title %}欢迎来访11BlogSite{% endblock %}</title>
-    <meta name="description" content="{% block meta_desc %}Danny的个人网站，采用的Python Django框架开发而成，从兴趣到实践，意在学习、分享与记录。技术专注于Python与前端开发，包括Python、Django、HTML、CSS、JavaScript、Redis、Linux等。{% endblock %}">
+    <title>{% block title %}warm-yum blog{% endblock %}</title>
+    <meta name="description" content="{% block meta_desc %}个人网站，采用的Python Django框架开发而成，从兴趣到实践，意在学习、分享与记录。技术专注于Python与前端开发，包括Python、Django、HTML、CSS、JavaScript、Redis、Linux等。{% endblock %}">
     <meta name="keywords" content="{% block meta_keywords %}编程,Python,Django,HTML,CSS,JavaScript,Redis,Linux,PHP,个人网站{% endblock %}">
     {% block extra_metas %}
     {% endblock %}
@@ -68,7 +68,7 @@
 	</div>
     </div>
     
-
+    {% block main_body %}
     <div class="container">
         <div class="row">    
             <div id="sidebar" class="col-xs-2 hidden-xs">
@@ -117,50 +117,19 @@
                     </ul>
                 </div>
             </div>
-            
-            <div id="main" class="col-lg-10 col-xs-12">
-                <div class="block">
-                    <header>
-                        <h2 class="">article1</h2>
-                    </header>
 
-                    <div class="row bot-list">
-                        <div class="col-sm-4 col-xs-12">
-                            <div class="bot">
-                                <div class="row">
-                                    <p>article1</p>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-                
-                <div class="block">
-                    <header>
-                        <h2 class="">article2</h2>
-                    </header>
+            {% block article_main %}
 
-                    <div class="row bot-list">
-                        <div class="col-sm-4 col-xs-12">
-                            <div class="bot">
-                                <div class="row">
-                                    <p>article2</p>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-            </div>
+            {% endblock %}
+
         </div>
     </div>
+    {% endblock %}
     
     <footer>
         <div class="press">
             <div class="container no-border">
                 <div class="row">
-                    <h3 class="text-center">As Seen On</h3>
                     <hr>
                     <div class="col-sm-4 col-xs-12 text-left">
                         <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
@@ -168,7 +137,7 @@
                         <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
                         <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
                     </div>
-                    <div class="col-sm-4 col-xs-12">
+                    <div class="col-sm-4 col-xs-12 text-center">
                         <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
                         <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
                         <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
@@ -180,8 +149,10 @@
                 </div>
             </div>
         </div>
+        
         <div class="container">
             <div class="row">
+                <p></p>
                 <div class="col-sm-6">
                     © BotList 2016, A Marketing Stack Ltd Company
                 </div>

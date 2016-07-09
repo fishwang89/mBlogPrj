@@ -6,14 +6,20 @@ from django import forms
 # Create your views here.
 
 
-def blog_list(request):
+def index_page(request):
     blogs = Article.objects.all().order_by('-publish_time')
     return render(request, 'index.html', {"blogs": blogs})
 
 
+def index_article(request):
+    blogs = Article.objects.all().order_by('-publish_time')
+    print blogs
+    return render(request, 'index_article.html', {"blogs": blogs})
+
+
 class Testform(forms.Form):
-	user = forms.CharField(max_length=30)
-	password = forms.CharField(max_length=30)
+    user = forms.CharField(max_length=30)
+    password = forms.CharField(max_length=30)
 
 
 def bootstrap_test(request):
