@@ -2,4 +2,4 @@
 *.sqlite3
 *.pyc
 *.pyo
-
+static/image

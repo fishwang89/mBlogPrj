@@ -17,17 +17,8 @@ def index_article(request):
     return render(request, 'index_article.html', {"blogs": blogs})
 
 
-class Testform(forms.Form):
-    user = forms.CharField(max_length=30)
-    password = forms.CharField(max_length=30)
-
-
-def bootstrap_test(request):
+def article(request, article_id):
     blogs = Article.objects.all().order_by('-publish_time')
-    f = Testform()
-    return render(request, 'bootstrap_test.html', {'blogs': blogs, 'form': f})
+    print blogs
+    return render(request, 'index_article.html', {"blogs": blogs})
 
-
-def static_test(request):
-    home = 'abc'
-    return render(request, 'static_test.html', {"home":home})
