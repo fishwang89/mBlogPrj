@@ -11,4 +11,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^index/', 'blog.views.index_page'),
     url(r'^index/', 'blog.views.index_article'),
+    url(r'^list/(?P<list_type>/S+)/(?P<page>[0-9]+)/$', views.article_list, name='article_list'),
 )
