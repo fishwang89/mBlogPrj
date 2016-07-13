@@ -21,4 +21,4 @@ def article(request, article_id):
     blogs = Article.objects.all().order_by('-publish_time')
     print blogs
     return render(request, 'index_article.html', {"blogs": blogs})
-
+    
