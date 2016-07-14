@@ -10,6 +10,8 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^index/', 'blog.views.index_page'),
-    url(r'^index/', 'blog.views.index_article'),
-    url(r'^list/(?P<list_type>/S+)/(?P<page>[0-9]+)/$', views.article_list, name='article_list'),
+    url(r'^index/', 'blog.views.index_page', name='index_page'),
+    url(r'^article_list/', 'blog.views.article_list', name="article_list"),
+    #url(r'^list/(?P<page>[0-9]+)/$', 'blog.views.article_list', name='article_list'),
+    url(r'^list/(\d{1,3})/', 'blog.views.article', name='article'),
 )
