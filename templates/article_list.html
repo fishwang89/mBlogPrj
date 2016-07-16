@@ -23,6 +23,15 @@
     </div>
     {% endfor %}
 
-    <div><span>{{ article_amount }}条 共{{ page_amount }}页</span></div>
+    <div class="center-block">
+        <span>{{ article_amount }}条 共{{ page_amount }}页</span>
+        {% for p in pages %}
+            {% if current_page == p %}
+                <a href="{% url 'article_list' p %}" class="btn btn-default active" role="button">{{ p }}</a>
+            {% else %}
+                <a href="{% url 'article_list' p %}" class="btn btn-default" role="button">{{ p }}</a>
+            {% endif %}
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

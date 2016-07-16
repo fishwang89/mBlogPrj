@@ -19,8 +19,8 @@ class Article(models.Model):
     content = models.TextField()
 
     class Meta(object):
-        verbose_name = u'Article fwafrwra'
-        verbose_name_plural = u'Article aa'
+        verbose_name = u'Article'
+        verbose_name_plural = u'Articles'
 
 
 class ArticleAdmin(admin.ModelAdmin):
