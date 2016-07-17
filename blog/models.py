@@ -24,4 +24,4 @@ class Article(models.Model):
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('caption', 'publish_time')
+    list_display = ('caption', 'publish_time', 'classification')

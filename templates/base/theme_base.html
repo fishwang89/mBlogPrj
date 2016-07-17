@@ -39,7 +39,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <!-- li><a href="https://botlist.co/news">News</a></li -->
-                    <li><a target="_blank" href="https://medium.com/chat-bots">Articles</a></li>
+                    <li><a target="_blank" href={% url "article_list" 1 %}>Articles</a></li>
                     <li><a target="_blank" href="http://botgig.com/">Create a Bot</a></li>
                     <li><a href="https://botlist.typeform.com/to/JXvvip" target="_blank">About</a></li>
                 </ul>
@@ -62,8 +62,7 @@
     <div id="hero">
 	<div class="container">
 		<div class="row">
-			<h2>background image here</h2>
-			<!--img src="{% static 'image/background.jpg' %}" class="platform-list" alt="platform logos"-->
+			<img src="{% static 'image/background.jpg' %}" class="platform-list" alt="platform logos">
 		</div>
 	</div>
     </div>
@@ -88,10 +87,10 @@
                 </div>
                 
                 <div class="block" class="list-unstyled">
-                    <p><a href="http://blog.chinaunix.net/uid/20788636/list/1.html">全部博文</a>（{{ article_amount }}）</p>
+                    <p><a href={% url "article_list" 1 %}>全部博文</a>（{{ article_amount }}）</p>
                     <ul id="blogClassfication">
                         {% for classfication in classfications %}
-                            <li><a href="" title="">{{ classfication.name }}</a>({{ classfication.name }})</li>
+                            <li><a href={% url "article_classification_list" classfication  1 %}>{{ classfication.name }}</a>({{ classfication.name }})</li>
                         {% endfor %}
                     </ul>
                 </div>

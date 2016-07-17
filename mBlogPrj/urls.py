@@ -11,8 +11,10 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^index/', 'blog.views.index_page'),
     url(r'^index/', 'blog.views.index_page', name='index_page'),
-    url(r'^article_list/', 'blog.views.article_list', name="article_list"),
     url(r'^list/(?P<page_num>\d{1,3})/', 'blog.views.article_list', name='article_list'),
-    url(r'^list/(?P<article_id>\d{1,5})/', 'blog.views.article', name='article'),
+    url(r'^type/(?P<class_type>)/list/(?P<page_num>\d{1,3})/',\
+        'blog.views.article_classification_list', name='article_classification_list'),
+
+    url(r'^article/(?P<arti_id>\d{1,5})/', 'blog.views.article', name='article'),
     url(r'^start/(?P<start>\d{1,3})/end/(?P<end>\d{1,3})', 'blog.views.generate_article', name='generate_article'),
 )

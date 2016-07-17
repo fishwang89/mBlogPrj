@@ -8,11 +8,16 @@ from time import time
 
 
 # use to generate dict for theme_base variable
-def theme_base():
-    article_amount = Article.objects.all().count()
-    classfications = Classification.objects.all()
+def theme_base(temp_amount=0):
+    if temp_amount == 0:
+        article_amount = Article.objects.all().count()
+    else:
+        article_amount = temp_amount
+
     page_amount = article_amount/10 + 1
     pages = range(1, page_amount+1)
+
+    classfications = Classification.objects.all()
     return {'article_amount': article_amount, 'classfications': classfications, 'page_amount': page_amount, 'pages': pages}
 
 
@@ -24,6 +29,9 @@ def index_page(request):
 
 
 def article_list(request, page_num):
+    # if page_num == "":
+    #    page_num = "1"
+
     page = int(page_num)
     articles_per_page = 10
 
@@ -48,18 +56,45 @@ def article_list(request, page_num):
     return render(request, 'article_list.html', res_dict)
 
 
-def article(request, article_id):
-    page = int(article_id)
+def article_classification_list(request, class_type, page_num):
+    page = int(page_num)
+    articles_per_page = 10
+
+    classification = Article.objects.get(classification=class_type)
+    c_count = len(classification)
+
+    # get base info about article in DB
+    theme_base_dict = theme_base(temp_amount=c_count)
+    res_dict = {}
+    res_dict.update(theme_base_dict)
+
+    # calculate the article_id that will be showed
+    article_start = (page-1)*articles_per_page
+    article_end = page*articles_per_page
+
+    # get article content
+    if res_dict['page_amount'] == page_num:
+        blogs = Article.objects.order_by('-publish_time').get(classification=class_type)[article_start:]
+    else:
+        blogs = Article.objects.order_by('-publish_time').get(classification=class_type)[article_start:article_end]
+
+    res_dict['blogs'] = blogs
+    res_dict['current_page'] = page     # user page not page_num they are different type
+
+    return render(request, 'article_list.html', res_dict)
+
+
+def article(request, arti_id):
+    article_id = int(arti_id)
 
     theme_base_dict = theme_base()
     res_dict = {}
     res_dict.update(theme_base_dict)
 
-    blogs = Article.objects.all().order_by('-publish_time')
-    res_dict['blogs'] = blogs
-    res_dict['page'] = page
+    blog = Article.objects.get(id=article_id)
+    res_dict['blog'] = blog
 
-    return render(request, 'article_list.html', res_dict)
+    return render(request, 'article.html', res_dict)
 
 
 def generate_article(request, start, end):

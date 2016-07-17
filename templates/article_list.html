@@ -6,7 +6,7 @@
     {% for blog in blogs %}
     <div class="block">
         <header>
-           <a href="">{{ blog.caption }}</a>
+           <a href={% url "article" blog.id %}>{{ blog.caption }}</a>
             <p>{{ blog.publish_time|date:"Y-m-d H:i"  }}    {{ blog.classification }} </p>
         </header>
 
@@ -27,9 +27,9 @@
         <span>{{ article_amount }}条 共{{ page_amount }}页</span>
         {% for p in pages %}
             {% if current_page == p %}
-                <a href="{% url 'article_list' p %}" class="btn btn-default active" role="button">{{ p }}</a>
+                <a  class="btn btn-default active" role="button" href={% url "article_list" p %}>{{ p }}</a>
             {% else %}
-                <a href="{% url 'article_list' p %}" class="btn btn-default" role="button">{{ p }}</a>
+                <a class="btn btn-default" role="button" href={% url "article_list" p %}>{{ p }}</a>
             {% endif %}
         {% endfor %}
     </div>
