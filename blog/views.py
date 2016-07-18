@@ -18,7 +18,13 @@ def theme_base(temp_amount=0):
     pages = range(1, page_amount+1)
 
     classfications = Classification.objects.all()
-    return {'article_amount': article_amount, 'classfications': classfications, 'page_amount': page_amount, 'pages': pages}
+    class_count = {}
+
+    for class_type in classfications:
+        articles = Article.objects.get(classification=class_type.name)
+        class_count[class_type.name] = len(articles)
+
+    return {'article_amount': article_amount, 'classfications': classfications, 'page_amount': page_amount, 'pages': pages, 'class_count': class_count}
 
 
 def index_page(request):
@@ -56,7 +62,7 @@ def article_list(request, page_num):
     return render(request, 'article_list.html', res_dict)
 
 
-def article_classification_list(request, class_type, page_num):
+def article_class_list(request, class_type, page_num):
     page = int(page_num)
     articles_per_page = 10
 

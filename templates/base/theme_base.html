@@ -90,7 +90,7 @@
                     <p><a href={% url "article_list" 1 %}>全部博文</a>（{{ article_amount }}）</p>
                     <ul id="blogClassfication">
                         {% for classfication in classfications %}
-                            <li><a href={% url "article_classification_list" classfication  1 %}>{{ classfication.name }}</a>({{ classfication.name }})</li>
+                            <li><a href={% url "article_class_list" classfication.name  1 %}>{{ classfication.name }}</a>({{ class_count[classfication.name] }})</li>
                         {% endfor %}
                     </ul>
                 </div>
