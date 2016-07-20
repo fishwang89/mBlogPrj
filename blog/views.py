@@ -12,6 +12,7 @@ def theme_base(temp_amount=0):
     if temp_amount == 0:
         article_amount = Article.objects.all().count()
     else:
+        print "yesyesyes"
         article_amount = temp_amount
 
     page_amount = article_amount/10 + 1
@@ -19,12 +20,11 @@ def theme_base(temp_amount=0):
 
     classfications = Classification.objects.all()
     class_count = {}
-
     for class_type in classfications:
-        articles = Article.objects.get(classification=class_type.name)
-        class_count[class_type.name] = len(articles)
+        class_count[class_type.name] = Article.objects.filter(classification__name=class_type.name).count()
 
-    return {'article_amount': article_amount, 'classfications': classfications, 'page_amount': page_amount, 'pages': pages, 'class_count': class_count}
+    return {'article_amount': article_amount, 'classfications': classfications, 'page_amount': page_amount,
+             'pages': pages, 'class_count': class_count}
 
 
 def index_page(request):
@@ -58,6 +58,8 @@ def article_list(request, page_num):
 
     res_dict['blogs'] = blogs
     res_dict['current_page'] = page     # user page not page_num they are different type
+    res_dict['url_type'] = "article_list"
+
 
     return render(request, 'article_list.html', res_dict)
 
@@ -66,8 +68,7 @@ def article_class_list(request, class_type, page_num):
     page = int(page_num)
     articles_per_page = 10
 
-    classification = Article.objects.get(classification=class_type)
-    c_count = len(classification)
+    c_count = Article.objects.filter(classification__name=class_type).count()
 
     # get base info about article in DB
     theme_base_dict = theme_base(temp_amount=c_count)
@@ -80,12 +81,14 @@ def article_class_list(request, class_type, page_num):
 
     # get article content
     if res_dict['page_amount'] == page_num:
-        blogs = Article.objects.order_by('-publish_time').get(classification=class_type)[article_start:]
+        blogs = Article.objects.filter(classification__name=class_type).order_by("-publish_time")[article_start:]
     else:
-        blogs = Article.objects.order_by('-publish_time').get(classification=class_type)[article_start:article_end]
+        blogs = Article.objects.filter(classification__name=class_type).order_by("-publish_time")[article_start:article_end]
 
     res_dict['blogs'] = blogs
     res_dict['current_page'] = page     # user page not page_num they are different type
+    res_dict['url_type'] = "article_class_list"
+    res_dict['class_type'] = class_type
 
     return render(request, 'article_list.html', res_dict)
 

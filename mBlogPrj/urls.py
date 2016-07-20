@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     # url(r'^index/', 'blog.views.index_page'),
     url(r'^index/', 'blog.views.index_page', name='index_page'),
     url(r'^list/(?P<page_num>\d{1,3})/', 'blog.views.article_list', name='article_list'),
-    url(r'^type/(?P<class_type>)\S+/(?P<page_num>\d{1,3})/', 'blog.views.article_class_list', name='article_class_list'),
+    url(r'^type/(?P<class_type>\S+)/(?P<page_num>\d{1,3})/', 'blog.views.article_class_list', name='article_class_list'),
     url(r'^article/(?P<arti_id>\d{1,5})/', 'blog.views.article', name='article'),
     url(r'^start/(?P<start>\d{1,3})/end/(?P<end>\d{1,3})', 'blog.views.generate_article', name='generate_article'),
 )

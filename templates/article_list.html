@@ -27,9 +27,17 @@
         <span>{{ article_amount }}条 共{{ page_amount }}页</span>
         {% for p in pages %}
             {% if current_page == p %}
-                <a  class="btn btn-default active" role="button" href={% url "article_list" p %}>{{ p }}</a>
+                {% if url_type == "article_list" %}
+                    <a  class="btn btn-default active" role="button" href={% url "article_list"  p %}>{{ p }}</a>
+                {% elif url_type == "article_class_list" %}
+                    <a  class="btn btn-default active" role="button" href={% url "article_class_list"  class_type p %}>{{ p }}</a>
+                {% endif %}
             {% else %}
-                <a class="btn btn-default" role="button" href={% url "article_list" p %}>{{ p }}</a>
+                {% if url_type == "article_list" %}
+                    <a class="btn btn-default" role="button" href={% url "article_list" p %}>{{ p }}</a>
+                {% elif url_type == "article_class_list" %}
+                   <a class="btn btn-default" role="button" href={% url "article_class_list" class_type p %}>{{ p }}</a>
+                {% endif %}
             {% endif %}
         {% endfor %}
     </div>

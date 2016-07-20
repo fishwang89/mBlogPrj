@@ -85,13 +85,17 @@
                         <li><a href="https://botlist.co/bots/filter?platform=14">Skype</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="block" class="list-unstyled">
                     <p><a href={% url "article_list" 1 %}>全部博文</a>（{{ article_amount }}）</p>
                     <ul id="blogClassfication">
-                        {% for classfication in classfications %}
-                            <li><a href={% url "article_class_list" classfication.name  1 %}>{{ classfication.name }}</a>({{ class_count[classfication.name] }})</li>
-                        {% endfor %}
+                        {% for class_type in classfications %}
+                            {% for count_key,count_value in class_count.items %}
+                                {% if class_type.name == count_key %}
+                                    <li><a href={% url "article_class_list" class_type.name  1 %}>{{ class_type.name }}</a>({{ count_value }})</li>
+                                {% endif %}
+                            {% endfor %}
+                    {% endfor %}
                     </ul>
                 </div>
             </div>
