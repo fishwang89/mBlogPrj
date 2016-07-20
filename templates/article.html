@@ -20,4 +20,13 @@
         </div>
     </div>
 </div>
+
+<div id="post_next_prev">
+    {% if current_id == 1 %}
+        没有了<br>
+    {% else %}
+        上一篇：<a href={% url "article" pre_id  %}>{{ pre_caption.caption }}</a><br>
+    {% endif %}
+        下一篇：<a href={% url "article" next_id %}>{{ next_caption.caption }}</a><br>
+</div>
 {% endblock %}

@@ -38,9 +38,8 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <!-- li><a href="https://botlist.co/news">News</a></li -->
+                    <li><a target="_blank" href="http://botgig.com/">Home</a></li>
                     <li><a target="_blank" href={% url "article_list" 1 %}>Articles</a></li>
-                    <li><a target="_blank" href="http://botgig.com/">Create a Bot</a></li>
                     <li><a href="https://botlist.typeform.com/to/JXvvip" target="_blank">About</a></li>
                 </ul>
 
@@ -92,7 +91,7 @@
                         {% for class_type in classfications %}
                             {% for count_key,count_value in class_count.items %}
                                 {% if class_type.name == count_key %}
-                                    <li><a href={% url "article_class_list" class_type.name  1 %}>{{ class_type.name }}</a>({{ count_value }})</li>
+                                    <li><a href={% url "article_class_list" class_type.name  1 %}>{{ class_type.name }}</a>（{{ count_value }}）</li>
                                 {% endif %}
                             {% endfor %}
                     {% endfor %}

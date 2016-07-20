@@ -102,6 +102,13 @@ def article(request, arti_id):
 
     blog = Article.objects.get(id=article_id)
     res_dict['blog'] = blog
+    res_dict['current_id'] = article_id
+    res_dict['next_id'] = article_id + 1
+    res_dict['next_caption'] = Article.objects.get(id=res_dict['next_id'])
+
+    if article_id > 1:
+        res_dict['pre_id'] = article_id - 1
+        res_dict['pre_caption'] = Article.objects.get(id=res_dict['pre_id'])
 
     return render(request, 'article.html', res_dict)
 
