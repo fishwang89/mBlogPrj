@@ -26,13 +26,14 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^ueditor/',include("DjangoUeditor.urls")),
+    url(r'^ueditor/', include("DjangoUeditor.urls")),
     # url(r'^index/', 'blog.views.index_page'),
     url(r'^index/', blog_views.index_page, name='index_page'),
     url(r'^list/(?P<page_num>\d{1,3})/', blog_views.article_list, name='article_list'),
     url(r'^categories/(?P<class_type>\S+)/(?P<page_num>\d{1,3})/', blog_views.article_class_list, name='article_class_list'),
     url(r'^article/(?P<arti_id>\d{1,5})/', blog_views.article, name='article'),
     url(r'^start/(?P<start>\d{1,3})/end/(?P<end>\d{1,3})', blog_views.generate_article, name='generate_article'),
+    url(r'^search/', include('haystack.urls')),
 )
 
 '''urlpatterns = patterns('',

@@ -21,6 +21,9 @@ class Article(models.Model):
     content = UEditorField( u'neirong   ', width=1200, height=600, toolbars="full", imagePath="", filePath="",
                             upload_settings={"imageMaxSize": 1204000}, settings={}, command=None, blank=True)
 
+    def __unicode__(self):
+        return self.caption
+
     class Meta(object):
         verbose_name = u'Article'
         verbose_name_plural = u'Articles'

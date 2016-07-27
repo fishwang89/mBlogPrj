@@ -2,4 +2,6 @@
 *.sqlite3
 *.pyc
 *.pyo
-static/image
+*.tar.gz
+whoosh_index/
+*.bak
