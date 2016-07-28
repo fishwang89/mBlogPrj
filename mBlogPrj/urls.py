@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from blog import views as blog_views
-import DjangoUeditor
+
 
 admin.autodiscover()
 

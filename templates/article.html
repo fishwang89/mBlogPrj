@@ -21,17 +21,17 @@
     </div>
 </div>
 
-<div id="post_next_prev">
+<div id="post_next_prev" class="post-nav">
     {% if current_id == 1 %}
-        没有了<br>
+        <a class="pre">没有了</a>
     {% else %}
-        上一篇：<a href={% url "article" pre_id  %}>{{ pre_caption.caption }}</a><br>
+        <a class="pre" href={% url "article" pre_id  %}>上一篇：{{ pre_caption.caption }}</a>
     {% endif %}
 
     {% if current_id == article_amount %}
-        没有了<br>
+        <a class="next">没有了</a>
     {% else %}
-        下一篇：<a href={% url "article" next_id %}>{{ next_caption.caption }}</a><br>
+        <a class="next" href={% url "article" next_id %}>下一篇：{{ next_caption.caption }}</a>
     {% endif %}
 
 </div>

@@ -1,0 +1,112 @@
+/* page header*/
+.page-header {
+    width: 1170px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #5EA9DC;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px; /* up right down left*/
+}
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+/* post navigator*/
+.post-nav {
+    overflow: hidden;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 10px;
+    white-space: nowrap;
+    border-top: 1px solid #eee;
+}
+.post-nav a {
+    display: inline-block;
+    line-height: 25px;
+    font-size: 15px;
+    color: #555;
+    border-bottom: none;
+    float: left;
+}
+.post-nav a.pre {
+    float: left;
+}
+.post-nav a.pre:before{
+    font-family: "FontAwesome";
+    content: "\f0d9";
+    padding-right: 0.3em;
+}
+.post-nav a.next {
+    float: right;
+}
+.post-nav a.next:after {
+    font-family: "FontAwesome";
+    content: "\f0da";
+    padding-left: 0.3em;
+}
+.post-nav a:hover {
+    border-bottom: none;
+    color: #222;
+}
+
+/* top navbar 最上面的导航条*/
+.top-navbar {
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+}
+
+/* sidebar侧边栏*/
+#sidebar {
+  border-left: 1px solid #ddd;
+  padding-left: 35px;
+  margin-top: 40px;
+  padding-bottom: 20px;
+  word-wrap: break-word; }
+  #sidebar .widget {
+    margin-bottom: 30px; }
+    #sidebar .widget .widget-title {
+      color: #6E7173;
+      line-height: 2.7;
+      margin-top: 0;
+      font-size: 16px;
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-weight: normal; }
+    #sidebar .widget .comments-title {
+      color: #6E7173;
+      line-height: 2.7;
+      margin-top: 0;
+      font-size: 16px;
+      border-bottom: 0px solid #ddd;
+      display: block;
+      font-weight: normal; }
+    #sidebar .widget .tagcloud {
+      margin-top: 10px; }
+      #sidebar .widget .tagcloud a {
+        line-height: 1.5;
+        padding: 5px; }
+    #sidebar .widget ul {
+      list-style: none;
+      padding: 0; }
+      #sidebar .widget ul li {
+        margin: 5px 0;
+        line-height: 1.5; }
+    #sidebar .widget .search-form {
+      position: relative;
+      overflow: hidden; }
+      #sidebar .widget .search-form input {
+        background: #fff 8px 8px no-repeat
+        padding: 7px 11px 7px 28px;
+        line-height: 16px;
+        border: 1px solid #bbb;
+        width: 65%;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 5px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none; }
