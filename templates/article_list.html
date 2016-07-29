@@ -4,23 +4,23 @@
 {% block article_main %}
 <div id="article_main" class="col-lg-10 col-xs-12">
     {% for blog in blogs %}
-    <div class="block">
-        <header>
-           <a href={% url "article" blog.id %}>{{ blog.caption }}</a>
-            <p>{{ blog.publish_time|date:"Y-m-d H:i"  }}    {{ blog.classification }} </p>
-        </header>
+        <div class="block">
+            <header>
+               <a href={% url "article" blog.id %}>{{ blog.caption }}</a>
+                <p>{{ blog.publish_time|date:"Y-m-d H:i"  }}    {{ blog.category }} </p>
+            </header>
 
-        <div class="row bot-list">
-            <div class="col-sm-12 col-xs-12">
-                <div class="bot">
-                    <div class="row">
-                        <p>{{ blog.content }}</p>
+            <div class="row bot-list">
+                <div class="col-sm-12 col-xs-12">
+                    <div class="bot">
+                        <div class="row">
+                            <p>{{ blog.content | safe }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
+            <hr>
         </div>
-        <hr>
-    </div>
     {% endfor %}
 
     <div class="center-block">
@@ -29,14 +29,14 @@
             {% if current_page == p %}
                 {% if url_type == "article_list" %}
                     <a  class="btn btn-default active" role="button" href={% url "article_list"  p %}>{{ p }}</a>
-                {% elif url_type == "article_class_list" %}
-                    <a  class="btn btn-default active" role="button" href={% url "article_class_list"  class_type p %}>{{ p }}</a>
+                {% elif url_type == "article_category_list" %}
+                    <a  class="btn btn-default active" role="button" href={% url "article_category_list"  category_type p %}>{{ p }}</a>
                 {% endif %}
             {% else %}
                 {% if url_type == "article_list" %}
                     <a class="btn btn-default" role="button" href={% url "article_list" p %}>{{ p }}</a>
-                {% elif url_type == "article_class_list" %}
-                   <a class="btn btn-default" role="button" href={% url "article_class_list" class_type p %}>{{ p }}</a>
+                {% elif url_type == "article_category_list" %}
+                   <a class="btn btn-default" role="button" href={% url "article_category_list" category_type p %}>{{ p }}</a>
                 {% endif %}
             {% endif %}
         {% endfor %}

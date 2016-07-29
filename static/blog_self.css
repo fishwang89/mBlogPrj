@@ -97,7 +97,7 @@
       position: relative;
       overflow: hidden; }
       #sidebar .widget .search-form input {
-        background: #fff 8px 8px no-repeat
+        background: #fff 8px 8px no-repeat;
         padding: 7px 11px 7px 28px;
         line-height: 16px;
         border: 1px solid #bbb;
@@ -110,3 +110,173 @@
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none; }
+
+/* 分类/标签*/
+/* <a class="article-category-tag post-category-design" href="#">design</a>*/
+.article-category-tag {
+    margin: 0 0.1em;
+    padding: 0.3em 1em;
+    color: #fff;
+    background: #999;
+    font-size: 80%;
+}
+    .post-category-design {
+        background: #5aba59;
+    }
+    .post-category-pure {
+        background: #4d85d1;
+    }
+    .post-category-yui {
+        background: #8156a7;
+    }
+    .post-category-js {
+        background: #df2d4f;
+    }
+
+/* 头像*/
+/* <img class="post-avatar" alt="Eric Ferraiuolo's avatar" height="48" width="48" src="{% static "image/test.jpg" %}">*/
+.image-head {
+    border-radius: 50px;
+    float: right;
+    margin-left: 1em;
+}
+
+/* 文章*/
+.post {
+  padding: 25px 0 15px; }
+  .post .post-title {
+    margin: 0;
+    color: #555;
+    text-align: left;
+    font: bold 28px/1.1 "WenQuanYi Micro Hei", "Microsoft YaHei", "TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial; }
+    .post .post-title a {
+      color: #555; }
+  .post .post-meta {
+    padding: 0;
+    margin: 15px 0 0;
+    color: #6E7173;
+    float: left;
+    display: inline;
+    text-indent: .15em; }
+    .post .post-meta:before {
+      font-family: "FontAwesome";
+      content: "\f073";
+      padding-right: 0.3em; }
+    .post .post-meta .category:before {
+      font-family: "FontAwesome";
+      content: "\f07c";
+      padding-right: 0.3em; }
+    .post .post-meta #busuanzi_value_page_pv:before {
+      font-family: "FontAwesome";
+      content: "\f024";
+      padding-right: 0.3em; }
+  .post .ds-thread-count {
+    padding: 0;
+    margin: 15px 0 0;
+    color: #6E7173;
+    float: right;
+    display: inline;
+    text-indent: .15em; }
+    .post .ds-thread-count:before {
+      font-family: "FontAwesome";
+      content: "\f0e5";
+      padding-right: 0.3em; }
+    .post .ds-thread-count:hover {
+      color: #444; }
+  .post .disqus-comment-count {
+    padding: 0;
+    margin: 15px 0 0;
+    color: #6E7173;
+    float: right;
+    display: inline;
+    text-indent: .15em; }
+    .post .disqus-comment-count:before {
+      font-family: "FontAwesome";
+      content: "\f0e5";
+      padding-right: 0.3em; }
+    .post .disqus-comment-count:hover {
+      color: #444; }
+  .post .post-content {
+    clear: left;
+    font-size: 15px;
+    line-height: 1.77;
+    color: #444;
+    padding-top: 1px;
+    text-justify: distribute;
+    word-break: normal; }
+    .post .post-content h2 {
+      margin: 0.5em 0 0.8em;
+      border-bottom: 1px solid #eee;
+      overflow: hidden; }
+    .post .post-content h3 {
+      margin: 0.5em 0 0.8em; }
+    .post .post-content pre code {
+      padding: 0 2em; }
+    .post .post-content p:first-child {
+      margin: 0.8em 0 0.8em; }
+    .post .post-content p {
+      margin: 0 0 0.8em; }
+      .post .post-content p code {
+        color: #E74C3C;
+        background: #fff;
+        font-size: 75%;
+        overflow-x: auto;
+        white-space: nowrap;
+        max-width: 100%;
+        display: inline;
+        margin: 0 5px;
+        padding: 1px 5px;
+        border: solid 1px #e1e4e5; }
+      .post .post-content p a {
+        color: #01579f;
+        padding-bottom: 2px;
+        word-break: break-all; }
+        .post .post-content p a:hover {
+          text-decoration: underline; }
+      .post .post-content p .caption {
+        color: #444;
+        display: block;
+        font-size: 0.9em;
+        margin-top: 0.1em;
+        position: relative;
+        text-align: center; }
+    .post .post-content hr {
+      margin: 2.4em auto;
+      border: none;
+      border-top: 1px solid #eee;
+      position: relative; }
+    .post .post-content img {
+      max-width: 100%;
+      padding: 0.5em 0;
+      margin: auto;
+      display: block; }
+    .post .post-content ul, .post .post-content ol {
+      border-radius: 3px;
+      margin: 1em 0; }
+      .post .post-content ul ul, .post .post-content ol ul {
+        margin: 0; }
+      .post .post-content ul code, .post .post-content ol code {
+        color: #E74C3C;
+        background: #fff;
+        font-size: 75%;
+        overflow-x: auto;
+        white-space: nowrap;
+        max-width: 100%;
+        display: inline;
+        margin: 0 5px;
+        padding: 1px 5px;
+        border: solid 1px #e1e4e5; }
+      .post .post-content ul a, .post .post-content ol a {
+        color: #01579f;
+        padding-bottom: 2px;
+        word-break: break-all; }
+        .post .post-content ul a:hover, .post .post-content ol a:hover {
+          text-decoration: underline; }
+  .post .tags {
+    padding-bottom: 1em; }
+    .post .tags a {
+      margin-right: .5em; }
+      .post .tags a:before {
+        font-family: "FontAwesome";
+        content: "\f0c6";
+        padding-right: 0.3em; }

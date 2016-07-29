@@ -1,7 +1,7 @@
-#coding=utf-8
+# coding=utf-8
 from django.shortcuts import render
 from django.http import HttpResponse
-from blog.models import Article, Classification
+from blog.models import Article, Category
 from time import time
 
 # Create your views here.
@@ -17,13 +17,13 @@ def theme_base(temp_amount=0):
     page_amount = article_amount/10 + 1
     pages = range(1, page_amount+1)
 
-    classfications = Classification.objects.all()
-    class_count = {}
-    for class_type in classfications:
-        class_count[class_type.name] = Article.objects.filter(classification__name=class_type.name).count()
+    categories = Category.objects.all()
+    category_count = {}
+    for category_type in categories:
+        category_count[category_type.name] = Article.objects.filter(category__name=category_type.name).count()
 
-    return {'article_amount': article_amount, 'classfications': classfications, 'page_amount': page_amount,
-             'pages': pages, 'class_count': class_count}
+    return {'article_amount': article_amount, 'categories': categories, 'page_amount': page_amount,
+             'pages': pages, 'category_count': category_count}
 
 
 def index_page(request):
@@ -62,11 +62,11 @@ def article_list(request, page_num):
     return render(request, 'article_list.html', res_dict)
 
 
-def article_class_list(request, class_type, page_num):
+def article_category_list(request, category_type, page_num):
     page = int(page_num)
     articles_per_page = 10
 
-    c_count = Article.objects.filter(classification__name=class_type).count()
+    c_count = Article.objects.filter(category__name=category_type).count()
 
     # get base info about article in DB
     theme_base_dict = theme_base(temp_amount=c_count)
@@ -79,14 +79,14 @@ def article_class_list(request, class_type, page_num):
 
     # get article content
     if res_dict['page_amount'] == page_num:
-        blogs = Article.objects.filter(classification__name=class_type).order_by("-publish_time")[article_start:]
+        blogs = Article.objects.filter(category__name=category_type).order_by("-publish_time")[article_start:]
     else:
-        blogs = Article.objects.filter(classification__name=class_type).order_by("-publish_time")[article_start:article_end]
+        blogs = Article.objects.filter(category__name=category_type).order_by("-publish_time")[article_start:article_end]
 
     res_dict['blogs'] = blogs
     res_dict['current_page'] = page     # user page not page_num they are different type
-    res_dict['url_type'] = "article_class_list"
-    res_dict['class_type'] = class_type
+    res_dict['url_type'] = "article_category_list"
+    res_dict['category_type'] = category_type
 
     return render(request, 'article_list.html', res_dict)
 
@@ -123,7 +123,7 @@ def generate_article(request, start, end):
 
     while start_num < end_num:
         p = Article(caption=("article"+str(start_num)), publish_time=time(), update_time=time(),
-                    classification=Classification.objects.get(id=1), content=("test content for article "+str(start_num)))
+                    category=Category.objects.get(id=1), content=("test content for article "+str(start_num)))
         p.save()
         start_num += 1
 

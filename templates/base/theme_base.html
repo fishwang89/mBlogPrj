@@ -63,17 +63,19 @@
     </nav>
 
 	<div id="blog_name" class="page-header">
-            <h1><a href={% url "index_page" %}>Fish Blog</a></h1>
+            <h1><a href={% url "index_page" %}>Test</a></h1>
 			<!--img src="{% static 'image/background.jpg' %}" class="platform-list" alt="platform logos"-->
 	</div>
 
     <div class="container">
         <div class="row">
+            <div id="article_main" class="col-lg-10 col-xs-12">
             {% block article_main %}
 
             {% endblock %}
+            </div>
 
-            <div id="sidebar" class="col-xs-2 hidden-xs col-xs-offset-10">
+            <div id="sidebar" class="col-lg-2 col-xs-12">
                 <div class="widget">
                     <div class="widget-title"><i class="fa myfa fa-folder-o"></i>分类</div>
 
@@ -86,10 +88,10 @@
 
                     <p><a href={% url "article_list" 1 %}>全部博文</a>（{{ article_amount }}）</p>
                     <ul id="blogClassfication">
-                        {% for class_type in classfications %}
-                            {% for count_key,count_value in class_count.items %}
-                                {% if class_type.name == count_key %}
-                                    <li><a href={% url "article_class_list" class_type.name  1 %}>{{ class_type.name }}</a>（{{ count_value }}）</li>
+                        {% for category_type in categories %}
+                            {% for count_key,count_value in category_count.items %}
+                                {% if category_type.name == count_key %}
+                                    <li><a href={% url "article_category_list" category_type.name  1 %}>{{ category_type.name }}</a>（{{ count_value }}）</li>
                                 {% endif %}
                             {% endfor %}
                     {% endfor %}
@@ -101,7 +103,7 @@
             </div>
         </div>
     </div>
-    
+
     <footer>
         <div class="press">
             <div class="container no-border">

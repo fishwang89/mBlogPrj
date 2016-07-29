@@ -2,19 +2,19 @@
 {% load staticfiles %}
 
 {% block article_main %}
-<div id="article_main" class="col-lg-10 col-xs-12">
-    <div class="block">
-        <header>
-           <a href="">{{ blog.caption }}</a>
-            <p>{{ blog.publish_time|date:"Y-m-d H:i"  }}    {{ blog.classification }} </p>
-        </header>
+<div class="post">
+    <h1 class="post-title">{{ blog.caption }}</h1>
+    <div class="post-meta">{{ blog.publish_time|date:"Y-m-d H:i"  }}<span> | </span>
+        <span class="category"><a href="">{{ blog.category }}</a></span>
+        <script src="./Django1.9开发博客（10）- 全文搜索 _ 野猪林_files/busuanzi.pure.mini.js" async=""></script>
+        <span id="busuanzi_container_page_pv" style="display: inline;"> | <span id="busuanzi_value_page_pv">{{ blog.click }}</span><span> Hits</span></span>
+    </div>
 
-        <div class="row bot-list">
-            <div class="col-sm-12 col-xs-12">
-                <div class="bot">
-                    <div class="row">
-                        <p>{{ blog.content }}</p>
-                    </div>
+    <div class="row bot-list">
+        <div class="col-sm-12 col-xs-12">
+            <div class="bot">
+                <div class="row">
+                    <p>{{ blog.content | safe}}</p>
                 </div>
             </div>
         </div>
@@ -23,16 +23,15 @@
 
 <div id="post_next_prev" class="post-nav">
     {% if current_id == 1 %}
-        <a class="pre">没有了</a>
+        <a class="pre">上一篇：没有了</a>
     {% else %}
         <a class="pre" href={% url "article" pre_id  %}>上一篇：{{ pre_caption.caption }}</a>
     {% endif %}
 
     {% if current_id == article_amount %}
-        <a class="next">没有了</a>
+        <a class="next">下一篇：没有了</a>
     {% else %}
         <a class="next" href={% url "article" next_id %}>下一篇：{{ next_caption.caption }}</a>
     {% endif %}
-
 </div>
 {% endblock %}
