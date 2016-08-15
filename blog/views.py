@@ -1,7 +1,7 @@
 # coding=utf-8
 from django.shortcuts import render
 from django.http import HttpResponse
-from blog.models import Article, Category
+from blog.models import Article, Category, Tag
 from time import time
 
 # Create your views here.
@@ -22,8 +22,13 @@ def theme_base(temp_amount=0):
     for category_type in categories:
         category_count[category_type.name] = Article.objects.filter(category__name=category_type.name).count()
 
+    tag = Tag.objects.all()
+    tags = []
+    for tag_unit in tag:
+        tags.append(tag_unit)
+
     return {'article_amount': article_amount, 'categories': categories, 'page_amount': page_amount,
-             'pages': pages, 'category_count': category_count}
+             'pages': pages, 'category_count': category_count, 'tags': tags}
 
 
 def index_page(request):
@@ -105,6 +110,11 @@ def article(request, arti_id):
     blog = Article.objects.get(id=article_id)
     res_dict['blog'] = blog
     res_dict['current_id'] = article_id
+
+    # 有bug 不能这么用 一次访问可能多次调用这个函数
+    '''old_hits = int(blog.click)
+    new_hits = old_hits + 1
+    Article.objects.filter(id=article_id).update(click=new_hits)'''
 
     if res_dict['current_id'] < res_dict['article_amount']:
         res_dict['next_id'] = article_id + 1

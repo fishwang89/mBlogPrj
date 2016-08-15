@@ -13,6 +13,7 @@
     <!--link href="{% static 'bootstrap-3.3.5-dist/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'bootstrap-3.3.5-dist/css/bootstrap-theme.min.css' %}" rel="stylesheet"-->
     <link href="{% static 'blog_self.css' %}" rel="stylesheet">
+    <script src={% static 'js_self.js' %}></script>
 
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
@@ -42,9 +43,9 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a target="_blank" href="http://botgig.com/">Home</a></li>
+                    <li><a target="_blank" href="{% url "index_page" %}">Home</a></li>
                     <li><a target="_blank" href={% url "article_list" 1 %}>Articles</a></li>
-                    <li><a href="https://botlist.typeform.com/to/JXvvip" target="_blank">About</a></li>
+                    <li><a href="{% url "index_page" %}" target="_blank">About</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -52,7 +53,7 @@
                     <li>
                         <form class="search" role="search" method="GET" action="http://192.168.0.101:8008/search/">
                             <div class="form-group inner-addon left-addon">
-                                <input name="query" type="text" class="form-control" placeholder="Search">
+                                <input id="id_q" name="q" type="search" type="text" class="form-control" placeholder="Search">
                                 <i class="glyphicon glyphicon-search form-control-feedback"></i>
                             </div>
                         </form>
@@ -69,13 +70,18 @@
 
     <div class="container">
         <div class="row">
-            <div id="article_main" class="col-lg-10 col-xs-12">
+            <div id="article_main" class="col-lg-9 col-xs-12">
             {% block article_main %}
 
             {% endblock %}
+
+            {% block search_main %}
+
+            {% endblock %}
+
             </div>
 
-            <div id="sidebar" class="col-lg-2 col-xs-12">
+            <div id="sidebar" class="col-lg-3 col-xs-12">
                 <div class="widget">
                     <div class="widget-title"><i class="fa myfa fa-folder-o"></i>分类</div>
 
@@ -96,8 +102,17 @@
                             {% endfor %}
                     {% endfor %}
                     </ul>
+                </div>
 
-                    <div class="widget-title"><i class="fa myfa fa-folder-o"></i>Tags</div>
+                <div class="widget">
+                    <div class="widget-title"><i class="fa myfa fa-folder-o"></i>标签</div>
+
+                    <div class="tagcloud">
+                        {% for tag in tags %}
+                            <a href="" style="font-size: 15px;">{{ tag.name }}</a>
+                        {% endfor %}
+                    </div>
+
                 </div>
 
             </div>

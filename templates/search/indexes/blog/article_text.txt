@@ -1,2 +1,3 @@
-{{ object.content}}
+{{ object.content }}
 {{ object.caption }}
+{{ object.id }}

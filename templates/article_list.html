@@ -14,7 +14,12 @@
                 <div class="col-sm-12 col-xs-12">
                     <div class="bot">
                         <div class="row">
-                            <p>{{ blog.content | safe }}</p>
+                            <p id="test_js">{{ blog.content | safe }}</p>
+                            <script>
+                                document.getElementById("test_js").innerHTML=delHtmlTag({{ blog.content | safe | truncatewords:"60" }})
+                            </script>
+
+                            <!--这里要修改为 一是清除格式  二是只显示一部分-->
                         </div>
                     </div>
                 </div>

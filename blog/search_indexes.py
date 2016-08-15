@@ -8,6 +8,7 @@ from haystack import indexes
 class ArticleIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     title = indexes.CharField(model_attr='caption')
+    idd = indexes.IntegerField(model_attr='id')
 
     def get_model(self):
         return Article
