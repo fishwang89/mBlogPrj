@@ -60,12 +60,12 @@
 /* sidebar侧边栏*/
 #sidebar {
   border-left: 1px solid #ddd;
-  padding-left: 35px;
-  margin-top: 40px;
+  padding-left: 10px;
+  margin-top: 10px;
   padding-bottom: 20px;
   word-wrap: break-word; }
   #sidebar .widget {
-    margin-bottom: 30px; }
+    margin-bottom: 10px; }
     #sidebar .widget .widget-title {
       color: #6E7173;
       line-height: 2.7;
@@ -111,7 +111,7 @@
         -moz-box-shadow: none;
         box-shadow: none; }
 
-/* 分类/标签*/
+/* PURE的分类/标签*/
 /* <a class="article-category-tag post-category-design" href="#">design</a>*/
 .article-category-tag {
     margin: 0 0.1em;
@@ -120,26 +120,39 @@
     background: #999;
     font-size: 80%;
 }
-    .post-category-design {
-        background: #5aba59;
-    }
-    .post-category-pure {
-        background: #4d85d1;
-    }
-    .post-category-yui {
-        background: #8156a7;
-    }
-    .post-category-js {
-        background: #df2d4f;
-    }
+.post-category-design {
+    background: #5aba59;
+}
+.post-category-pure {
+    background: #4d85d1;
+}
+.post-category-yui {
+    background: #8156a7;
+}
+.post-category-js {
+    background: #df2d4f;
+}
 
-/* 头像*/
+/* 侧边栏头像*/
 /* <img class="post-avatar" alt="Eric Ferraiuolo's avatar" height="48" width="48" src="{% static "image/test.jpg" %}">*/
 .image-head {
     border-radius: 50px;
     float: right;
-    margin-left: 1em;
+    /*margin-left: 1em;*/
+    margin-top:5px;
+    margin-right:5px;
 }
+
+/* 侧边栏信息框 */
+.newsItem{    
+    border-radius:7px 7px 7px 7px;
+    box-shadow:1px 1px 2px #a7a8ad;
+    margin:0px 0px 20px;
+    border-style:outset; 
+    border-color:#5EA9DC;
+    padding:5px}
+.newsItem .catListTitle{
+    display:none}
 
 /* 文章*/
 .post {
@@ -332,4 +345,6 @@
       background-position: 50% 100%;
       -webkit-transform: scale(1.4, 3.2);
       -moz-transform: scale(1.4, 3.2);
-      transform: scale(1.4, 3.2); } }        
+      transform: scale(1.4, 3.2); } }   
+
+      

@@ -84,6 +84,15 @@
             </div>
 
             <div id="sidebar" class="col-lg-3 col-xs-12">
+                <div class="newsItem">
+                    <img class="image-head" alt="test" height="72" width="72" src="{% static "image/image_head.jpg" %}">
+                    <p>Welcome</p>
+                    <a href="http://www.github.com" class="btn btn-info">Github</a>
+                    <a href="http://www.weibo.com" class="btn btn-info">Weibo</a>
+                    <hr>
+                    <p>Contact : wangyu_ustb@163.com</p>
+                </div>
+
                 <div class="widget">
                     <div class="widget-title"><i class="fa myfa fa-folder-o"></i>分类</div>
 
@@ -95,15 +104,17 @@
                     <a class="category-list-link" href="http://www.pycoding.com/categories/%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/">算法之美</a></li></ul-->
 
                     <p><a href={% url "article_list" 1 %}>全部博文</a>（{{ article_amount }}）</p>
-                    <ul id="blogClassfication">
-                        {% for category_type in categories %}
-                            {% for count_key,count_value in category_count.items %}
-                                {% if category_type.name == count_key %}
-                                    <li><a href={% url "article_category_list" category_type.name  1 %}>{{ category_type.name }}</a>（{{ count_value }}）</li>
-                                {% endif %}
-                            {% endfor %}
-                    {% endfor %}
-                    </ul>
+                    <div class="sidebar">
+                        <ul id="blogClassfication">
+                            {% for category_type in categories %}
+                                {% for count_key,count_value in category_count.items %}
+                                    {% if category_type.name == count_key %}
+                                        <li><a href={% url "article_category_list" category_type.name  1 %}>{{ category_type.name }}</a>（{{ count_value }}）</li>
+                                    {% endif %}
+                                {% endfor %}
+                        {% endfor %}
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="widget">
@@ -128,14 +139,8 @@
                     <hr>
                     <div class="col-sm-4 col-xs-12 text-left">
                         <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
-                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
-                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
-                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
                     </div>
                     <div class="col-sm-4 col-xs-12 text-center">
-                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
-                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
-                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
                         <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
                     </div>
                     <div class="col-sm-4 col-xs-12 text-right">
@@ -146,12 +151,12 @@
         </div>
         
         <div class="container">
+            <hr>
             <div class="row">
                 <p></p>
                 <div class="col-sm-6">
-                    © BotList 2016, A Marketing Stack Ltd Company
+                    Copyright © 2016 <a target="_blank" href="">@wangyu</a>
                 </div>
-                <div class="col-sm-6 text-right">Built by: <a target="_blank" href="https://twitter.com/bentossell">@bentossell</a>, <a target="_blank" href="https://twitter.com/sethlouey">@sethlouey</a>, <a target="_blank" href="https://twitter.com/mubashariqbal">@mubashariqbal</a></div>
             </div>
         </div>
     </footer>
