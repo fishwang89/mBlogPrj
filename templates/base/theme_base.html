@@ -43,9 +43,9 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a target="_blank" href="{% url "index_page" %}">Home</a></li>
-                    <li><a target="_blank" href={% url "article_list" 1 %}>Articles</a></li>
-                    <li><a href="{% url "index_page" %}" target="_blank">About</a></li>
+                    <li><a href="{% url "index_page" %}">Home</a></li>
+                    <li><a href={% url "article_list" 1 %}>Articles</a></li>
+                    <li><a href="{% url "about_page" %}">About</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -96,13 +96,6 @@
                 <div class="widget">
                     <div class="widget-title"><i class="fa myfa fa-folder-o"></i>分类</div>
 
-                    <!--ul class="category-list"><li class="category-list-item">
-                    <a class="category-list-link" href="http://www.pycoding.com/categories/java/">java</a></li>
-                    <li class="category-list-item"><a class="category-list-link" href="http://www.pycoding.com/categories/linux/">linux</a></li>
-                    <li class="category-list-item"><a class="category-list-link" href="http://www.pycoding.com/categories/python/">python</a></li>
-                    <li class="category-list-item"><a class="category-list-link" href="http://www.pycoding.com/categories/%E6%8A%80%E6%9C%AF%E9%9A%8F%E7%AC%94/">技术随笔</a></li><li class="category-list-item"><a class="category-list-link" href="http://www.pycoding.com/categories/%E6%9C%9D%E8%8A%B1%E5%A4%95%E6%8B%BE/">朝花夕拾</a></li><li class="category-list-item">
-                    <a class="category-list-link" href="http://www.pycoding.com/categories/%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/">算法之美</a></li></ul-->
-
                     <p><a href={% url "article_list" 1 %}>全部博文</a>（{{ article_amount }}）</p>
                     <div class="sidebar">
                         <ul id="blogClassfication">
@@ -138,13 +131,13 @@
                 <div class="row">
                     <hr>
                     <div class="col-sm-4 col-xs-12 text-left">
-                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=23">UnderDeveloping</a></li>
                     </div>
                     <div class="col-sm-4 col-xs-12 text-center">
-                        <li><a href="https://botlist.co/bots/filter?category=23">Build A Bot</a></li>
+                        <li><a href="https://botlist.co/bots/filter?category=23">UnderDeveloping</a></li>
                     </div>
                     <div class="col-sm-4 col-xs-12 text-right">
-                        <img src="./Botlist • An App Store For Bots;_files/digital-trends.svg">
+                        <img src="{% static 'image/praise.png' %}"  height="32" width="32">
                     </div>
                 </div>
             </div>
@@ -155,7 +148,7 @@
             <div class="row">
                 <p></p>
                 <div class="col-sm-6">
-                    Copyright © 2016 <a target="_blank" href="">@wangyu</a>
+                    Copyright © 2016 <a href="">@wangyu</a>
                 </div>
             </div>
         </div>

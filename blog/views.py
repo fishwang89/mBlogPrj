@@ -38,6 +38,13 @@ def index_page(request):
     return render(request, 'index.html', res_dict)
 
 
+def about_page(request):
+    theme_base_dict = theme_base()
+    res_dict = {}
+    res_dict.update(theme_base_dict)
+    return render(request, 'about.html', res_dict)
+
+
 def article_list(request, page_num):
     # if page_num == "":
     #    page_num = "1"
