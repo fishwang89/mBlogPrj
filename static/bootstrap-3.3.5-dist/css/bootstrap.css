@@ -2627,7 +2627,7 @@ input[type="search"] {
   }
 }
 .form-group {
-  margin-bottom: 15px;
+  margin-top: 10px;
 }
 .radio,
 .checkbox {
@@ -2793,6 +2793,7 @@ select[multiple].input-lg {
   line-height: 34px;
   text-align: center;
   pointer-events: none;
+  margin-top:10px;
 }
 .input-lg + .form-control-feedback,
 .input-group-lg + .form-control-feedback,

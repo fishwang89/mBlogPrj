@@ -119,9 +119,10 @@ def article(request, arti_id):
     res_dict['current_id'] = article_id
 
     # 有bug 不能这么用 一次访问可能多次调用这个函数
-    '''old_hits = int(blog.click)
+    print "fwaehfhwaehfwahfuia67890"
+    old_hits = int(blog.click)
     new_hits = old_hits + 1
-    Article.objects.filter(id=article_id).update(click=new_hits)'''
+    Article.objects.filter(id=article_id).update(click=new_hits)
 
     if res_dict['current_id'] < res_dict['article_amount']:
         res_dict['next_id'] = article_id + 1
