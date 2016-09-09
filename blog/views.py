@@ -14,6 +14,9 @@ def theme_base(temp_amount=0):
     else:
         article_amount = temp_amount
 
+    # total article count
+    total_amount = Article.objects.all().count()
+
     page_amount = article_amount/10 + 1
     pages = range(1, page_amount+1)
 
@@ -27,8 +30,8 @@ def theme_base(temp_amount=0):
     for tag_unit in tag:
         tags.append(tag_unit)
 
-    return {'article_amount': article_amount, 'categories': categories, 'page_amount': page_amount,
-             'pages': pages, 'category_count': category_count, 'tags': tags}
+    return {'article_amount': article_amount, 'total_amount': total_amount, 'categories': categories,
+             'page_amount': page_amount, 'pages': pages, 'category_count': category_count, 'tags': tags}
 
 
 def index_page(request):

@@ -2,49 +2,41 @@
 {% load staticfiles %}
 
 {% block article_main %}
-<div id="article_main" class="col-lg-10 col-xs-12">
-    {% for blog in blogs %}
-        <div class="block">
-            <header>
-               <a href={% url "article" blog.id %}>{{ blog.caption }}</a>
-                <p>{{ blog.publish_time|date:"Y-m-d H:i"  }}    {{ blog.category }} </p>
-            </header>
+{% for blog in blogs %}
+    <div class="block">
+        <header>
+           <a href={% url "article" blog.id %}>{{ blog.caption }}</a>
+            <p>{{ blog.publish_time|date:"Y-m-d H:i"  }}    {{ blog.category }} </p>
+        </header>
 
-            <div class="row bot-list">
-                <div class="col-sm-12 col-xs-12">
-                    <div class="bot">
-                        <div class="row">
-                            <p id="test_js">{{ blog.content | safe }}</p>
-                            <script>
-                                document.getElementById("test_js").innerHTML=delHtmlTag({{ blog.content | safe | truncatewords:"60" }})
-                            </script>
+        <div class="post-content">
+            <!--p id="test_js" class="text-center">{{ blog.content | safe | truncatewords:"100" }}</p-->
+            <!--script>
+                document.getElementById("test_js").innerHTML=delHtmlTag({{ blog.content | safe}})
+            </script-->
 
-                            <!--这里要修改为 一是清除格式  二是只显示一部分-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
+            <!--这里要修改为 一是清除格式  二是只显示一部分-->
         </div>
-    {% endfor %}
-
-    <div class="center-block">
-        <span>{{ article_amount }}条 共{{ page_amount }}页</span>
-        {% for p in pages %}
-            {% if current_page == p %}
-                {% if url_type == "article_list" %}
-                    <a  class="btn btn-default active" role="button" href={% url "article_list"  p %}>{{ p }}</a>
-                {% elif url_type == "article_category_list" %}
-                    <a  class="btn btn-default active" role="button" href={% url "article_category_list"  category_type p %}>{{ p }}</a>
-                {% endif %}
-            {% else %}
-                {% if url_type == "article_list" %}
-                    <a class="btn btn-default" role="button" href={% url "article_list" p %}>{{ p }}</a>
-                {% elif url_type == "article_category_list" %}
-                   <a class="btn btn-default" role="button" href={% url "article_category_list" category_type p %}>{{ p }}</a>
-                {% endif %}
-            {% endif %}
-        {% endfor %}
+        <hr>
     </div>
+{% endfor %}
+
+<div class="center-block">
+    <span>{{ article_amount }}条 共{{ page_amount }}页</span>
+    {% for p in pages %}
+        {% if current_page == p %}
+            {% if url_type == "article_list" %}
+                <a  class="btn btn-default active" role="button" href={% url "article_list"  p %}>{{ p }}</a>
+            {% elif url_type == "article_category_list" %}
+                <a  class="btn btn-default active" role="button" href={% url "article_category_list"  category_type p %}>{{ p }}</a>
+            {% endif %}
+        {% else %}
+            {% if url_type == "article_list" %}
+                <a class="btn btn-default" role="button" href={% url "article_list" p %}>{{ p }}</a>
+            {% elif url_type == "article_category_list" %}
+               <a class="btn btn-default" role="button" href={% url "article_category_list" category_type p %}>{{ p }}</a>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
 </div>
 {% endblock %}

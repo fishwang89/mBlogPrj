@@ -64,8 +64,9 @@ WSGI_APPLICATION = 'mBlogPrj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+		'NAME' : '/home/pi/prj/mBlogPrj/db.sqlite3',
+	}
 }
 
 # Internationalization
@@ -86,9 +87,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT =
+SETTINGS_PATH = os.path.normpath(os.path.dirname(__file__))
+# STATIC_ROOT = os.path.join(SETTINGS_PATH, '../static')
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    # os.path.join(BASE_DIR, 'static'),
+	'/home/pi/prj/mBlogPrj/static/',
 )
 
 # add from 1.9 settings.py

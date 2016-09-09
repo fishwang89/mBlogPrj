@@ -5,8 +5,8 @@
 <head>
     <meta charset="utf-8">
     <title>{% block title %}warm-yum blog{% endblock %}</title>
-    <meta name="description" content="{% block meta_desc %}个人网站，采用的Python Django框架开发而成，从兴趣到实践，意在学习、分享与记录。技术专注于Python与前端开发，包括Python、Django、HTML、CSS、JavaScript、Redis、Linux等。{% endblock %}">
-    <meta name="keywords" content="{% block meta_keywords %}编程,Python,Django,HTML,CSS,JavaScript,Redis,Linux,PHP,个人网站{% endblock %}">
+    <meta name="description" content="{% block meta_desc %}个人网站，采用的Python Django框架开发而成，从兴趣到实践，意在学习、分享与记录。{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}编程,Python,Django,嵌入式,个人网站{% endblock %}">
     {% block extra_metas %}
     {% endblock %}
     <link href="{% static 'bootstrap-3.3.5-dist/css/bootstrap.css' %}" rel="stylesheet">
@@ -27,12 +27,12 @@
         <div class="container">
             <div class="navbar-header">
                 <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                <!--button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
+                </button-->
             
                 <!-- Branding Image -->
                 <a class="navbar-brand" href={% url "index_page" %}>
@@ -64,7 +64,7 @@
     </nav>
 
 	<div id="blog_name" class="page-header">
-            <h1><a href={% url "index_page" %}>Test</a></h1>
+            <h1><a href={% url "index_page" %}>FishBlog</a></h1>
 			<!--img src="{% static 'image/background.jpg' %}" class="platform-list" alt="platform logos"-->
 	</div>
 
@@ -87,8 +87,8 @@
                 <div class="newsItem">
                     <img class="image-head" alt="test" height="72" width="72" src="{% static "image/image_head.jpg" %}">
                     <p>Welcome</p>
-                    <a href="http://www.github.com" class="btn btn-info">Github</a>
-                    <a href="http://www.weibo.com" class="btn btn-info">Weibo</a>
+                    <a target="_blank"  href="https://github.com/fishwang89" class="btn btn-info">Github</a>
+                    <a target="_blank"  href="http://weibo.com/u/1692791931" class="btn btn-info">Weibo</a>
                     <hr>
                     <p>Contact : wangyu_ustb@163.com</p>
                     <!--这里放两个二维码图片，可以放自己公众号的二维码入口，图片放小的，鼠标放上去后变大-->
@@ -98,7 +98,7 @@
                 <div class="widget">
                     <div class="widget-title"><i class="fa myfa fa-folder-o"></i>分类</div>
 
-                    <p><a href={% url "article_list" 1 %}>全部博文</a>（{{ article_amount }}）</p>
+                    <p><a href={% url "article_list" 1 %}>全部博文</a>（{{ total_amount }}）</p>
                     <div class="sidebar">
                         <ul id="blogClassfication">
                             {% for category_type in categories %}
@@ -159,18 +159,16 @@
             <div class="row">
                 <p></p>
                 <div class="col-sm-12 text-center">
-                    Copyright © 2016 <a href="" >@wangyu</a>
+                    <a href="" >Copyright © 2016 @wangyu</a>
                 </div>
             </div>
         </div>
     </footer>
-    
     
     <!-- JavaScripts -->
     <script src="{% static 'bootstrap-3.3.5-dist/js/bootstrap.js' %}"></script>
 
     <script src="{% static 'bootstrap-3.3.5-dist/js/bootstrap.min.js' %}"></script>
 
-    
 </body>
 </html>
