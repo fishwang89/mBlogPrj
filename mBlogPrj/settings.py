@@ -92,9 +92,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/common')
 # STATIC_ROOT = '/usr/local/python3/lib/python3.6/site-packages/django/contrib/admin/static'
+SETTINGS_PATH = os.path.normpath(os.path.dirname(__file__))
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    # os.path.join(BASE_DIR, 'static'),
+	'/home/pi/prj/mBlogPrj/static/',
 )
 
 # add from 1.9 settings.py
