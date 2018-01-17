@@ -14,7 +14,7 @@ def theme_base(temp_amount=0):
     else:
         article_amount = temp_amount
 
-    page_amount = article_amount/10 + 1
+    page_amount = int(article_amount/10 + 1)
     pages = range(1, page_amount+1)
 
     categories = Category.objects.all()
@@ -30,6 +30,8 @@ def theme_base(temp_amount=0):
     return {'article_amount': article_amount, 'categories': categories, 'page_amount': page_amount,
              'pages': pages, 'category_count': category_count, 'tags': tags}
 
+def hello(request):
+    return HttpResponse("Hello world")
 
 def index_page(request):
     theme_base_dict = theme_base()
@@ -119,7 +121,7 @@ def article(request, arti_id):
     res_dict['current_id'] = article_id
 
     # 有bug 不能这么用 一次访问可能多次调用这个函数
-    print "fwaehfhwaehfwahfuia67890"
+    print("fwaehfhwaehfwahfuia67890")
     old_hits = int(blog.click)
     new_hits = old_hits + 1
     Article.objects.filter(id=article_id).update(click=new_hits)

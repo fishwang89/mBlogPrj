@@ -2,6 +2,7 @@
 from blog.models import Article
 from haystack import indexes
 
+
 # Add your code here.
 
 

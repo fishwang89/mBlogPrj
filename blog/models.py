@@ -34,7 +34,7 @@ class Article(models.Model):
     caption = models.CharField(max_length=150)
     publish_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     click = models.IntegerField(default=0)
     content = UEditorField( '内容   ', width=1200, height=600, toolbars="full", imagePath="", filePath="",
                             upload_settings={"imageMaxSize": 1204000}, settings={}, command=None, blank=True)

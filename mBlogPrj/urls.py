@@ -13,19 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import patterns, include, url
+from django.conf.urls import url, include
 from django.contrib import admin
 from blog import views as blog_views
 
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Examples:
     # url(r'^$', 'mBlogPrj.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
+    url(r'^hello/', blog_views.hello),
     # url(r'^ueditor/', include("DjangoUeditor.urls")),
     url(r'^index/', blog_views.index_page, name='index_page'),
     url(r'^about/', blog_views.about_page, name='about_page'),
@@ -33,8 +34,8 @@ urlpatterns = patterns('',
     url(r'^categories/(?P<category_type>\S+)/(?P<page_num>\d{1,3})/', blog_views.article_category_list, name='article_category_list'),
     url(r'^article/(?P<arti_id>\d{1,5})/', blog_views.article, name='article'),
     url(r'^start/(?P<start>\d{1,3})/end/(?P<end>\d{1,3})', blog_views.generate_article, name='generate_article'),
-    url(r'^search/', include('haystack.urls')),
-)
+    # url(r'^search/', include('haystack.urls')),
+]
 
 '''urlpatterns = patterns('',
     # Examples:

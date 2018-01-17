@@ -5,3 +5,4 @@
 *.tar.gz
 whoosh_index/
 *.bak
+*.db

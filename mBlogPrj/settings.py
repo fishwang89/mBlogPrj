@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '1r=-poc3-ncjtr6-aupz(0xl6e7a)*pf&2z%n$q&ep+84djpm-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 
@@ -63,8 +63,12 @@ WSGI_APPLICATION = 'mBlogPrj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'blog_data',
+	'USER': 'root',
+	'PASSWD':'',
+	'HOST':'',
+	'PORT':'',
     }
 }
 
@@ -86,7 +90,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT =
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/common')
+# STATIC_ROOT = '/usr/local/python3/lib/python3.6/site-packages/django/contrib/admin/static'
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -95,7 +101,7 @@ STATICFILES_DIRS = (
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/pi/prj/mBlogPrj/templates', ],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],    # 注意这里每次要修改
         'APP_DIRS': True,
         'OPTIONS': {
             'debug': DEBUG,
