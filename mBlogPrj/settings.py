@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '1r=-poc3-ncjtr6-aupz(0xl6e7a)*pf&2z%n$q&ep+84djpm-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
@@ -95,8 +95,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/common')
 SETTINGS_PATH = os.path.normpath(os.path.dirname(__file__))
 
 STATICFILES_DIRS = (
-    # os.path.join(BASE_DIR, 'static'),
-	'/home/pi/prj/mBlogPrj/static/',
+    os.path.join(BASE_DIR, 'static'),
+	# '/home/pi/prj/mBlogPrj/static/',
 )
 
 # add from 1.9 settings.py
