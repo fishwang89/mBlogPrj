@@ -6,3 +6,4 @@
 whoosh_index/
 *.bak
 *.db
+static/image/

@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{% block title %}warm-yum blog{% endblock %}</title>
+    <title>{% block title %}wangyu blog{% endblock %}</title>
     <meta name="description" content="{% block meta_desc %}个人网站，采用的Python Django框架开发而成，从兴趣到实践，意在学习、分享与记录。{% endblock %}">
     <meta name="keywords" content="{% block meta_keywords %}编程,Python,Django,嵌入式,个人网站{% endblock %}">
     {% block extra_metas %}
@@ -35,9 +35,9 @@
                 </button-->
             
                 <!-- Branding Image -->
-                <a class="navbar-brand" href={% url "index_page" %}>
-                    <img src="{% static 'image/logo.png' %}">
-                </a>
+                <!-- a class="navbar-brand" href={% url "index_page" %}>
+                    <img height="30" width="50" src="{% static 'image/logo.jpg' %}">
+                </a -->
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -87,8 +87,8 @@
                 <div class="newsItem">
                     <img class="image-head" alt="test" height="72" width="72" src="{% static "image/image_head.jpg" %}">
                     <p>Welcome</p>
-                    <a target="_blank"  href="https://github.com/fishwang89" class="btn btn-info">Github</a>
-                    <a target="_blank"  href="http://weibo.com/u/1692791931" class="btn btn-info">Weibo</a>
+                    <a target="_blank"  href="https://github.com/fishwang89" class="btn btn-info" target="_blank">Github</a>
+                    <a target="_blank"  href="http://weibo.com/u/1692791931" class="btn btn-info" target="_blank">Weibo</a>
                     <hr>
                     <p>Contact : wangyu_ustb@163.com</p>
                     <!--这里放两个二维码图片，可以放自己公众号的二维码入口，图片放小的，鼠标放上去后变大-->
@@ -133,19 +133,19 @@
                 <div class="row">
                     <hr>
                     <div class="col-sm-3 col-xs-12 text-center">
-                        <li><a href="https://github.com/">Github</a></li>
+                        <li><a href="https://www.vultr.com/" target="_blank">Vultr</a></li>
                     </div>
                     <div class="col-sm-3 col-xs-12 text-center">
-                        <li><a href="https://ke.qq.com/">腾讯课堂</a></li>
+                        <li><a href="https://segmentfault.com/" target="_blank">SegmentFault</a></li>
                     </div>
                     <!--div class="col-sm-2 col-xs-12 text-center">
                         <img src="{% static 'image/praise.png' %}"  height="32" width="32">
                     </div-->
                     <div class="col-sm-3 col-xs-12 text-center">
-                        <li><a href="https://leetcode.com/">LeetCode</a></li>
+                        <li><a href="https://leetcode.com/" target="_blank">LeetCode</a></li>
                     </div>
                     <div class="col-sm-3 col-xs-12 text-center">
-                        <li><a href="http://www.runoob.com/">菜鸟教程</a></li>
+                        <li><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></li>
                     </div>
                     <!--div class="col-sm-2 col-xs-12 text-center">
                         <img src="{% static 'image/praise.png' %}"  height="32" width="32">
@@ -159,7 +159,7 @@
             <div class="row">
                 <p></p>
                 <div class="col-sm-12 text-center">
-                    <a href="" >Copyright © 2016 @wangyu</a>
+                    <a href="" >Copyright © 2017 @wangyu</a>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@ from DjangoUeditor.models import UEditorField
 class Tag(models.Model):
     name = models.CharField(max_length=20)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     class Meta:
@@ -21,7 +21,7 @@ class Tag(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=20)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     class Meta(object):
@@ -40,7 +40,7 @@ class Article(models.Model):
                             upload_settings={"imageMaxSize": 1204000}, settings={}, command=None, blank=True)
 
 
-    def __unicode__(self):
+    def __str__(self):
         return self.caption
 
     class Meta(object):
