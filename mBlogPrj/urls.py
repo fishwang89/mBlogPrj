@@ -25,8 +25,8 @@ urlpatterns = [
     # url(r'^$', 'mBlogPrj.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^admin/', admin.site.urls),
-    url(r'^hello/', blog_views.hello),
+    url(r'^admin_fish1989blog/', admin.site.urls),
+    url(r'^$', blog_views.index_page, name='index_page'),
     # url(r'^ueditor/', include("DjangoUeditor.urls")),
     url(r'^index/', blog_views.index_page, name='index_page'),
     url(r'^about/', blog_views.about_page, name='about_page'),

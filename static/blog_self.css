@@ -33,7 +33,7 @@
 .post-nav a.pre {
     float: left;
 }
-.post-nav a.pre:before{
+.post-nav a.pre{
     font-family: "FontAwesome";
     content: "\f0d9";
     padding-right: 0.3em;
@@ -41,7 +41,7 @@
 .post-nav a.next {
     float: right;
 }
-.post-nav a.next:after {
+.post-nav a.next {
     font-family: "FontAwesome";
     content: "\f0da";
     padding-left: 0.3em;
@@ -171,15 +171,15 @@
     float: left;
     display: inline;
     text-indent: .15em; }
-    .post .post-meta:before {
+    .post .post-meta {
       font-family: "FontAwesome";
       content: "\f073";
       padding-right: 0.3em; }
-    .post .post-meta .category:before {
+    .post .post-meta .category {
       font-family: "FontAwesome";
       content: "\f07c";
       padding-right: 0.3em; }
-    .post .post-meta #busuanzi_value_page_pv:before {
+    .post .post-meta #busuanzi_value_page_pv {
       font-family: "FontAwesome";
       content: "\f024";
       padding-right: 0.3em; }
